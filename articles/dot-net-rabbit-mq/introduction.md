@@ -1,4 +1,4 @@
-### How understanding RabbitMQ with dot Net Core.
+# How understanding RabbitMQ with dot Net Core.
 
 In my first article, written when I had listened  "The Who - Baba OReilly".  I bring to you a simple way to use one of the best technologies do you need now in times in which the user's and device's quantity was growing exponentially. You need the most performance and better scalability ... more and more. 
 
@@ -56,8 +56,12 @@ Lets go to send your first message.
 
 ## The mainstream ... Understanding Publisher and Consumer Architecture. 
 
-# What is a Publisher?
+## What is a Publisher?
 
-# What is a Consumer?
+### Making a Publisher with dot Net Core
 
-# How send and test my first message.
+## What is a Consumer?
+
+### Making a Consumer with dot Net Core
+
+## How send and test my first message.
