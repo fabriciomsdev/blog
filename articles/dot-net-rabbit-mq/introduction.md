@@ -97,7 +97,7 @@ class Send
 {
     public static void Main()
     {
-        // In there you should be set your rabbit-mq connection in docker
+        /// In there you should be set your rabbit-mq connection in docker
         var factory = new ConnectionFactory() { 
           HostName = "localhost"; 
           Port = 5672;
@@ -108,18 +108,18 @@ class Send
         using(var connection = factory.CreateConnection())
         using(var channel = connection.CreateModel())
         {
-            // Setting up the Queue name where you send messages
+            /// Setting up the Queue name where you send messages
             channel.QueueDeclare(queue: "firstQueue",
                                  durable: false,
                                  exclusive: false,
                                  autoDelete: false,
                                  arguments: null);
 
-            // Your first messsage
+            /// Your first messsage
             string message = "My message of my first publisher";
             var body = Encoding.UTF8.GetBytes(message);
 
-            // Publish your first message
+            /// Publish your first message
             channel.BasicPublish(exchange: "",
                                  routingKey: "hello",
                                  basicProperties: null,
@@ -129,7 +129,7 @@ class Send
         }
 
         Console.WriteLine(" Press [enter] to exit.");
-        // Waiting a comand to close
+        /// Waiting a comand to close
         Console.ReadLine();
     }
 }
@@ -175,7 +175,7 @@ class Consumer
         using(var connection = factory.CreateConnection())
         using(var channel = connection.CreateModel())
         {
-            // Setting up the Queue name where you hear messages
+            /// Setting up the Queue name where you hear messages
             channel.QueueDeclare(queue: "firstQueue",
                                  durable: false,
                                  exclusive: false,
