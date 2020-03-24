@@ -56,12 +56,176 @@ Lets go to send your first message.
 
 ## The mainstream ... Understanding Publisher and Consumer Architecture. 
 
-## What is a Publisher?
+## What is a Publisher and Consumer in a Microservices Architecture?
+
+Publisher who is the guy to send messages and talk with anybody is hearing you or is authorized to hear your messages, think 
+you is making a hangout with your friends to talk about whats is wonderfull in your life, happiness should be a secret and you can
+saw to only less number of friends about this. And you send a invite and lets talk, at this moment you are the Publisher sending messages
+to other microservices, or better talking Consumers, (Your friends, who will get and processing the messages) in your Channel (Hangout) and who can have your Authorization (Your invite).
+
 
 ### Making a Publisher with dot Net Core
 
-## What is a Consumer?
+1 - First check if do you have dot net core. I your terminal you should type:
+
+```
+  dotnet --help
+```
+
+2 - Now lets generate the Publisher
+
+```
+dotnet new console --name Publisher
+cd Publisher
+```
+
+3 - Now add the RabbitMQ library
+
+```
+dotnet add package RabbitMQ.Client
+dotnet restore
+```
+
+4 - In the Program.cs file add:
+
+```
+using System;
+using RabbitMQ.Client;
+using System.Text;
+
+class Send
+{
+    public static void Main()
+    {
+        // In there you should be set your rabbit-mq connection in docker
+        var factory = new ConnectionFactory() { 
+          HostName = "localhost"; 
+          Port = 5672;
+          UserName = "admin";
+          Password = "admin123!"
+        };
+        
+        using(var connection = factory.CreateConnection())
+        using(var channel = connection.CreateModel())
+        {
+            // Setting up the Queue name where you send messages
+            channel.QueueDeclare(queue: "firstQueue",
+                                 durable: false,
+                                 exclusive: false,
+                                 autoDelete: false,
+                                 arguments: null);
+
+            // Your first messsage
+            string message = "My message of my first publisher";
+            var body = Encoding.UTF8.GetBytes(message);
+
+            // Publish your first message
+            channel.BasicPublish(exchange: "",
+                                 routingKey: "hello",
+                                 basicProperties: null,
+                                 body: body);
+
+            Console.WriteLine(" [x] Sent {0}", message);
+        }
+
+        Console.WriteLine(" Press [enter] to exit.");
+        // Waiting a comand to close
+        Console.ReadLine();
+    }
+}
+
+```
 
 ### Making a Consumer with dot Net Core
 
+1 - Now lets generate the Consumer
+
+```
+dotnet new console --name Consumer
+cd Consumer
+```
+
+2 - Now add the RabbitMQ library
+
+```
+dotnet add package RabbitMQ.Client
+dotnet restore
+```
+
+3 - In the Program.cs file add:
+
+```
+
+using RabbitMQ.Client;
+using RabbitMQ.Client.Events;
+using System;
+using System.Text;
+
+class Consumer
+{
+    public static void Main()
+    {
+        var factory = new ConnectionFactory() { 
+          HostName = "localhost"; 
+          Port = 5672;
+          UserName = "admin";
+          Password = "admin123!"
+        };
+
+        using(var connection = factory.CreateConnection())
+        using(var channel = connection.CreateModel())
+        {
+            // Setting up the Queue name where you hear messages
+            channel.QueueDeclare(queue: "firstQueue",
+                                 durable: false,
+                                 exclusive: false,
+                                 autoDelete: false,
+                                 arguments: null);
+
+            var consumer = new EventingBasicConsumer(channel);
+            consumer.Received += (model, ea) =>
+            {
+                var body = ea.Body;
+                var message = Encoding.UTF8.GetString(body);
+                Console.WriteLine(" [x] Received {0}", message);
+            };
+            channel.BasicConsume(queue: "firstQueue",
+                                 autoAck: true,
+                                 consumer: consumer);
+
+            Console.WriteLine(" Press [enter] to exit.");
+            Console.ReadLine();
+        }
+    }
+}
+
+```
+
+
 ## How send and test my first message.
+
+
+1 - Put the Consumer to hear
+
+```
+  cd Consumer
+  dotnet run
+```
+
+2 - Put the Publisher to send message
+
+```
+  cd Publisher
+  dotnet run
+```
+
+## Next step
+
+In the my next article I will bring to you an evolution of this aproache using a real case, an begin Authentication microservice pool with 
+the most common functions used for authenticate users.
+
+Thanks for read this article! Send comments and sugestions to contato@fabricioms.dev
+
+I see you soon! 
+
+Bye.
