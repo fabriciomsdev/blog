@@ -26,6 +26,7 @@ const Layout = ({ location, title, children }) => {
             lineHeight: `3.5rem`,
             marginBottom: `0px`,
             marginTop: `0px`,
+            fontWeight: `400`
           }}
         >
           <Link
@@ -41,7 +42,7 @@ const Layout = ({ location, title, children }) => {
         </h1>
       </nav>
     )
-    
+
   return (
     <div>
       <header>{header}</header>
@@ -49,7 +50,7 @@ const Layout = ({ location, title, children }) => {
         style={{
           paddingTop: `66px`,
           marginLeft: `auto`,
-          marginRight: `auto`
+          marginRight: `auto`,
         }}
       >
         {children}
@@ -62,7 +63,7 @@ const Layout = ({ location, title, children }) => {
           padding: `${rhythm(1)}`,
         }}
       >
-        © {new Date().getFullYear()}, All rights reserved.
+        © {new Date().getFullYear()}, Fabricio Magalhães, All rights reserved.
       </footer>
     </div>
   )
