@@ -28,7 +28,8 @@ const Bio = () => {
             summary
           }
           social {
-            twitter
+            github
+            linkedIn
           }
         }
       }
@@ -41,28 +42,42 @@ const Bio = () => {
       style={{
         display: `flex`,
         marginBottom: rhythm(2.5),
+        backgroundColor: `#008FCC`,
+        color: `#fff`,
+        paddingBottom: rhythm(1),
+        paddingTop: rhythm(1),
       }}
     >
-      <Image
-        fixed={data.avatar.childImageSharp.fixed}
-        alt={author.name}
+      <div
         style={{
-          marginRight: rhythm(1 / 2),
-          marginBottom: 0,
-          minWidth: 50,
-          borderRadius: `100%`,
+          display: `flex`,
+          maxWidth: rhythm(24),
+          marginLeft: `auto`,
+          marginRight: `auto`,
+          verticalAlign: `middle`,
         }}
-        imgStyle={{
-          borderRadius: `50%`,
-        }}
-      />
-      <p>
-        Written by <strong>{author.name}</strong> {author.summary}
-        {` `}
-        <a href={`https://twitter.com/${social.twitter}`}>
-          You should follow him on Twitter
-        </a>
-      </p>
+      >
+        <p
+          style={{
+            alignSelf: `center`,
+            marginBottom: `0px`,
+          }}
+        >
+          Written by <strong>{author.name}</strong> {author.summary}
+          <br></br>
+          <a style={{
+            color: `#fff`,
+            marginRight: `10px`,
+            marginTop: `20px`
+          }} href={`${social.linkedIn}`}>Linked In</a>
+          {` `}
+          <a style={{
+            color: `#fff`,
+            marginRight: `10px`,
+            marginTop: `20px`
+          }} href={`${social.github}`}>Github</a>
+        </p>
+      </div>
     </div>
   )
 }

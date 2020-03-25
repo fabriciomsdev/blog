@@ -7,63 +7,62 @@ const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   let header
 
-  if (location.pathname === rootPath) {
     header = (
-      <h1
+      <nav
         style={{
-          ...scale(1.5),
-          marginBottom: rhythm(1.5),
-          marginTop: 0,
+          position: `fixed`,
+          backgroundColor: `#0077aa`,
+          width: `100%`,
+          padding: `5px 20px`,
+          top: `0px`,
+          left: `0px`,
+          zIndex: `99`,
         }}
       >
-        <Link
+        <h1
           style={{
-            boxShadow: `none`,
-            textDecoration: `none`,
-            color: `inherit`,
+            ...scale(0.4),
+            marginTop: 0,
+            lineHeight: `3.5rem`,
+            marginBottom: `0px`,
+            marginTop: `0px`,
           }}
-          to={`/`}
         >
-          {title}
-        </Link>
-      </h1>
+          <Link
+            style={{
+              boxShadow: `none`,
+              textDecoration: `none`,
+              color: `#fff`,
+            }}
+            to={`/`}
+          >
+            {title}
+          </Link>
+        </h1>
+      </nav>
     )
-  } else {
-    header = (
-      <h3
-        style={{
-          fontFamily: `Montserrat, sans-serif`,
-          marginTop: 0,
-        }}
-      >
-        <Link
-          style={{
-            boxShadow: `none`,
-            textDecoration: `none`,
-            color: `inherit`,
-          }}
-          to={`/`}
-        >
-          {title}
-        </Link>
-      </h3>
-    )
-  }
+    
   return (
-    <div
-      style={{
-        marginLeft: `auto`,
-        marginRight: `auto`,
-        maxWidth: rhythm(24),
-        padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-      }}
-    >
+    <div>
       <header>{header}</header>
-      <main>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
+      <main
+        style={{
+          paddingTop: `66px`,
+          marginLeft: `auto`,
+          marginRight: `auto`
+        }}
+      >
+        {children}
+      </main>
+      <footer
+        style={{
+          backgroundColor: `#266580`,
+          width: `100%`,
+          color: `#fff`,
+          padding: `${rhythm(1)}`,
+        }}
+      >
+        © {new Date().getFullYear()}, All rights reserved.
       </footer>
     </div>
   )

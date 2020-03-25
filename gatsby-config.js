@@ -3,11 +3,13 @@ module.exports = {
     title: `Fabricio Magalhães`,
     author: {
       name: `Fabricio Magalhães`,
-      summary: `living on BH, Brazil, trying make better software day after day.`,
+      summary: `Software Engineer, living on BH (Brazil). Trying to learning skills to make software all days.`,
     },
     description: `A starter blog demonstrating what Gatsby can do.`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
     social: {
+      linkedIn: `https://www.linkedin.com/in/fabricio-magalh%C3%A3ess`,
+      github: `https://github.com/fabriciomsdev`,
       twitter: `https://github.com/fabriciomsdev`,
     },
   },
