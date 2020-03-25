@@ -12,7 +12,7 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="Fabricio Magalhães - Software Developer" />
+      <SEO title="Learn about the core concepts of Software" />
       <Bio />
       <section
         style={{
