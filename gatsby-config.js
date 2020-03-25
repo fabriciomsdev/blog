@@ -1,11 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: `Fabricio Magalhães`,
+    title: `Fabricio Magalhães - Software Developer`,
     author: {
       name: `Fabricio Magalhães`,
-      summary: `Software Engineer, living on BH (Brazil). Trying to learning skills to make software all days.`,
+      summary: `Software Developer, living on BH (Brazil). Trying to learning skills to make software all days.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
+    description: `Software Developer, a generalisty talking about Microservices, DDD, SOLID and Design patterns, living on Brazil. Trying to learning skills to make software all days. `,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
     social: {
       linkedIn: `https://www.linkedin.com/in/fabricio-magalh%C3%A3ess`,
