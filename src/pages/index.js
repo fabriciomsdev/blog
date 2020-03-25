@@ -25,7 +25,14 @@ const BlogIndex = ({ data, location }) => {
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
-            <article key={node.fields.slug}>
+            <article
+              key={node.fields.slug}
+              style={{
+                backgroundColor: `#fff`,
+                padding: `10px 20px`,
+                borderBottom: `1px #ccc solid`
+              }}
+            >
               <header>
                 <h3
                   style={{
