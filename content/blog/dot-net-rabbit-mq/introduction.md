@@ -1,6 +1,12 @@
+---
+title: How understanding RabbitMQ with dot Net Core
+date: "2020-02-30T22:00:03.284Z"
+description: "How to make a simple RabbitMQ connection with dotNet Core"
+---
+
 # How understanding RabbitMQ with dot Net Core.
 
-In my first article, written when I had listened  "The Who - My Generation".  I bring to you a simple way to use one of the best technologies do you need now in times in which the user's and device's quantity was growing exponentially. You need the most performance and better scalability ... more and more. 
+In my second article, written when I had listened  "The Who - My Generation".  I bring to you a simple way to use one of the best technologies do you need now in times in which the user's and device's quantity was growing exponentially. You need the most performance and better scalability ... more and more. 
 
 RabbitMQ gives you a simple Message Broker Service to helps you to deliver messages on distributed systems, as microservice. You are mentally asking what is "Message Broker Service"? And why I need this? 
 
