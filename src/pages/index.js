@@ -12,7 +12,7 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="Learn about the core concepts of Software" />
+      <SEO title="Learn about Software Development and Life" />
       <Bio />
       <section
         style={{
@@ -30,7 +30,7 @@ const BlogIndex = ({ data, location }) => {
               style={{
                 backgroundColor: `#fff`,
                 padding: `10px 20px`,
-                borderBottom: `1px #ccc solid`
+                borderBottom: `1px #ccc solid`,
               }}
             >
               <header>
